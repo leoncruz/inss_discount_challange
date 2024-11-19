@@ -5,6 +5,7 @@ services:
     command: "bundle exec rails s -b 0.0.0.0"
     depends_on:
       - database
+      - assets
     volumes:
       - ".:/app"
     env_file: .env
@@ -21,6 +22,14 @@ services:
     ports:
       - 5432:5432
 
+  assets:
+    build:
+      context: .
+    volumes:
+      - ".:/app"
+    tty: true
+    stdin_open: true
+    command: "bin/dev"
+
 volumes:
   database-data:
-

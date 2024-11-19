@@ -30,6 +30,8 @@ COPY Gemfile Gemfile.lock ./
 
 RUN bundle install
 
+RUN gem install foreman
+
 COPY package.json yarn.lock ./
 
 RUN yarn install
