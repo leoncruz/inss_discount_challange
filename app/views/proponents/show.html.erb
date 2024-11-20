@@ -27,7 +27,9 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <%= render "contacts/form" %>
+        <%= turbo_frame_tag :contact_form do %>
+          <%= render "contacts/form" %>
+        <% end %>
       </div>
     </div>
   </div>
