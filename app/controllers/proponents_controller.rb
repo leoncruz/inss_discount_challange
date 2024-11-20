@@ -10,9 +10,11 @@ class ProponentsController < ApplicationController
 
   def new
     @proponent = Proponent.new
+    @address = @proponent.build_address
   end
 
   def edit
+    @address = @proponent.address
   end
 
   def create
@@ -23,7 +25,7 @@ class ProponentsController < ApplicationController
       redirect_to @proponent
     else
       flash.now[:alert] = t(".alert")
-      render :new, status: :unprocessable_entity, alert: ""
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -51,6 +53,14 @@ class ProponentsController < ApplicationController
   end
 
   def proponent_params
-    params.require(:proponent).permit(:name, :cpf, :birth_date, :salary)
+    params
+      .require(:proponent)
+      .permit(
+        :name,
+        :cpf,
+        :birth_date,
+        :salary,
+        address_attributes: [ :cep, :street, :number, :neighborhood, :city, :state ]
+      )
   end
 end

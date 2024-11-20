@@ -6,3 +6,10 @@ pt-BR:
         cpf: CPF
         birth_date: Data de nascimento
         salary: Salário
+      address:
+        street: Rua
+        number: Número
+        neighborhood: Bairro
+        city: Cidade
+        state: Estado
+        cep: CEP

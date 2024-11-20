@@ -6,3 +6,5 @@ pt-BR:
       details: Detalhes
     new:
       title: Novo
+    form:
+      address: Endereço

@@ -1,42 +1,57 @@
 <% if alert %>
-  <%= content_tag :div, class: "alert alert-danger alert-dismissible fade show" do %>
+  <div class="alert alert-danger alert-dismissible fade show">
     <span><%= alert %></span>
 
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-  <% end %>
+  </div>
 <% end %>
 
 <%= form_with(model: proponent) do |form| %>
   <% if form.object.errors.any? %>
-    <ul class="alert alert-danger">
-      <% form.object.errors.full_messages.each do |msg| %>
-        <li class="list-group-item"><%= msg %></li>
-      <% end %>
-    </ul>
+    <div class="alert alert-danger alert-dismissible fade show">
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      <ul>
+        <% form.object.errors.full_messages.each do |msg| %>
+          <li class="list-group-item"><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
     
   <% end %>
 
-  <div class="mb-3">
-    <%= form.label :name, class: "form-label" %>
-    <%= form.text_field :name, class: "form-control" %>
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <div class="mb-3">
+        <%= form.label :name, class: "form-label" %>
+        <%= form.text_field :name, class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <div class="mb-3">
+        <%= form.label :cpf, class: "form-label" %>
+        <%= form.text_field :cpf, class: "form-control" %>
+      </div>
+    </div>
   </div>
 
-  <div class="mb-3">
-    <%= form.label :cpf, class: "form-label" %>
-    <%= form.text_field :cpf, class: "form-control" %>
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <div class="mb-3">
+        <%= form.label :birth_date, class: "form-label" %>
+        <%= form.date_field :birth_date, class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <div class="mb-3">
+        <%= form.label :salary, class: "form-label" %>
+        <%= form.text_field :salary, class: "form-control" %>
+      </div>
+    </div>
   </div>
 
-  <div class="mb-3">
-    <%= form.label :birth_date, class: "form-label" %>
-    <%= form.date_field :birth_date, class: "form-control" %>
-  </div>
+  <%= form.fields_for :address, @address do |fa| %>
+    <%= render "address/form", form: fa %>
+  <% end %>
 
-  <div class="mb-3">
-    <%= form.label :salary, class: "form-label" %>
-    <%= form.text_field :salary, class: "form-control" %>
-  </div>
-
-  <div class="mb-3">
-    <%= form.submit class: "btn btn-primary" %>
-  </div>
+  <%= form.submit class: "btn btn-primary" %>
 <% end %>

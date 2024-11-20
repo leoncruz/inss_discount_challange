@@ -4,3 +4,6 @@ pt-BR:
       proponent:
         one: Proponente
         other: Proponentes
+      address:
+        one: Endereço
+        other: Endereços

@@ -24,6 +24,12 @@ RSpec.describe "Proponents", type: :feature do
         fill_in "CPF", with: "12312312300"
         fill_in "Data de nascimento", with: "05/09/1990"
         fill_in "Salário", with: "8000"
+        fill_in "CEP", with: "11222333"
+        fill_in "Rua", with: "Rua #1"
+        fill_in "Número", with: "123"
+        fill_in "Cidade", with: "Cidade #1"
+        fill_in "Bairro", with: "Bairro #1"
+        select "São Paulo", from: "Estado"
 
         click_on "Salvar"
 
@@ -46,6 +52,12 @@ RSpec.describe "Proponents", type: :feature do
         expect(page).to have_text "Proponente não pode ser criado"
         expect(page).to have_text "CPF não pode ficar em branco"
         expect(page).to have_text "Data de nascimento não pode ficar em branco"
+        expect(page).to have_text "CEP não pode ficar em branco"
+        expect(page).to have_text "Rua não pode ficar em branco"
+        expect(page).to have_text "Número não pode ficar em branco"
+        expect(page).to have_text "Cidade não pode ficar em branco"
+        expect(page).to have_text "Bairro não pode ficar em branco"
+        expect(page).to have_text "Estado não pode ficar em branco"
       end
     end
   end
