@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_11_07_221518) do
+ActiveRecord::Schema[7.2].define(version: 2024_11_08_103759) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,6 +27,16 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_07_221518) do
     t.index ["proponent_id"], name: "index_addresses_on_proponent_id"
   end
 
+  create_table "contacts", force: :cascade do |t|
+    t.string "name"
+    t.boolean "reference", default: false
+    t.string "telephone", null: false
+    t.bigint "proponent_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["proponent_id"], name: "index_contacts_on_proponent_id"
+  end
+
   create_table "proponents", force: :cascade do |t|
     t.string "name", null: false
     t.string "cpf", null: false
@@ -37,4 +47,5 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_07_221518) do
   end
 
   add_foreign_key "addresses", "proponents"
+  add_foreign_key "contacts", "proponents"
 end

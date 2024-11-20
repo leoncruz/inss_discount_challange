@@ -1,0 +1,30 @@
+<%= form_with model: [@proponent, @contact] do |form| %>
+  <div class="container" data-controller="hidden-field">
+    <div class="form-check form-switch">
+      <%= form.check_box :reference, class: "form-check-input", data: { action: "change->hidden-field#display", hidden_field_target: "trigger" } %>
+      <%= form.label :reference, class: "form-check-label" %>
+
+      <span class="text-danger"><%= form.object.errors[:reference].to_sentence %></span>
+    </div>
+
+    <div class="d-none" data-hidden-field-target="hidden">
+      <%= form.label :name, class: "form-label" %>
+      <%= form.text_field :name, class: "form-control" %>
+
+      <span class="text-danger"><%= form.object.errors[:name].to_sentence %></span>
+    </div>
+
+    <div>
+      <%= form.label :telephone, class: "form-label" %>
+      <%= form.text_field :telephone, class: "form-control" %>
+
+      <span class="text-danger"><%= form.object.errors[:telephone].to_sentence %></span>
+    </div>
+
+    <div class="modal-footer d-flex gap-2 pt-3">
+      <%= link_to t("helpers.actions.close"), @contact.proponent, class: "btn btn-secondary" %>
+
+      <button type="submit" class="btn btn-primary"><%= t("helpers.actions.save") %></button>
+    </div>
+  </div>
+<% end %>

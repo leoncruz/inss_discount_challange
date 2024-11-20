@@ -6,3 +6,9 @@ import { application } from "./application"
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import HiddenFieldController from "./hidden_field_controller"
+application.register("hidden-field", HiddenFieldController)
+
+import ResetTurboFrameController from "./reset_turbo_frame_controller"
+application.register("reset-turbo-frame", ResetTurboFrameController)

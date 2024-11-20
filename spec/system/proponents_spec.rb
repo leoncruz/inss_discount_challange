@@ -99,7 +99,7 @@ RSpec.describe "Proponents", type: :feature do
     end
   end
 
-  describe "#detalhes" do
+  describe "#destroy" do
     before do
       create(:proponent, name: "Proponent #1")
       create(:proponent, name: "Proponent #2")

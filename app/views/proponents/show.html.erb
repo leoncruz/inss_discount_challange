@@ -8,3 +8,27 @@
   <%= link_to t("helpers.actions.edit"), edit_proponent_path(@proponent), class: "btn btn-secondary" %>
   <%= button_to t("helpers.actions.destroy"), @proponent, method: :delete, class: "btn btn-danger" %>
 </div>
+
+<div class="p-4">
+  <div class="d-flex align-items-center">
+    <h2><%= t(".contact_title") %></h2>
+
+    <%= link_to t(".add_contact"), "#", class: "btn btn-outline-primary ms-auto", data: { "bs-toggle": "modal", "bs-target": "#modal" } %>
+  </div>
+
+  <%= render @proponent.contacts %>
+</div>
+
+<div class="modal" tabindex="-1" id="modal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t(".add_contact") %></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= render "contacts/form" %>
+      </div>
+    </div>
+  </div>
+</div>

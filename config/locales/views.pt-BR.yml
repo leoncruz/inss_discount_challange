@@ -8,3 +8,7 @@ pt-BR:
       title: Novo
     form:
       address: Endereço
+      contacts: Contatos
+    show:
+      contact_title: Contatos
+      add_contact: Adicionar contato

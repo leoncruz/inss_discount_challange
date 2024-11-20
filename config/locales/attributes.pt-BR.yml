@@ -13,3 +13,7 @@ pt-BR:
         city: Cidade
         state: Estado
         cep: CEP
+      contact:
+        name: Nome
+        telephone: Telefone
+        reference: Referência

@@ -6,15 +6,18 @@ class ProponentsController < ApplicationController
   end
 
   def show
+    @contact = Contact.new
   end
 
   def new
     @proponent = Proponent.new
     @address = @proponent.build_address
+    @contacts = @proponent.contacts.build
   end
 
   def edit
     @address = @proponent.address
+    @contacts = @proponent.contacts
   end
 
   def create
@@ -60,7 +63,8 @@ class ProponentsController < ApplicationController
         :cpf,
         :birth_date,
         :salary,
-        address_attributes: [ :cep, :street, :number, :neighborhood, :city, :state ]
+        address_attributes: [ :cep, :street, :number, :neighborhood, :city, :state ],
+        contacts_attributes: [ :id, :_destroy, :reference, :name, :telephone ]
       )
   end
 end

@@ -155,6 +155,10 @@ pt-BR:
       back: Voltar
       edit: Editar
       destroy: Remover
+      close: Fechar
+      save: Salvar
+    messages:
+      are_you_sure: Tem certeza?
   number:
     currency:
       format:
