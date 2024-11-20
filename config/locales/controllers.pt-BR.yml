@@ -1,0 +1,10 @@
+pt-BR:
+  proponents:
+    create:
+      notice: Proponente criado com sucesso
+      alert: Proponente não pode ser criado
+    update:
+      notice: Proponente atualizado com sucesso
+      alert: Proponente não pode ser atualizado
+    destroy:
+      notice: Proponente foi removido som sucesso

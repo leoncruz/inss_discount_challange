@@ -1,0 +1,42 @@
+<% if alert %>
+  <%= content_tag :div, class: "alert alert-danger alert-dismissible fade show" do %>
+    <span><%= alert %></span>
+
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  <% end %>
+<% end %>
+
+<%= form_with(model: proponent) do |form| %>
+  <% if form.object.errors.any? %>
+    <ul class="alert alert-danger">
+      <% form.object.errors.full_messages.each do |msg| %>
+        <li class="list-group-item"><%= msg %></li>
+      <% end %>
+    </ul>
+    
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :cpf, class: "form-label" %>
+    <%= form.text_field :cpf, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :birth_date, class: "form-label" %>
+    <%= form.date_field :birth_date, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :salary, class: "form-label" %>
+    <%= form.text_field :salary, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

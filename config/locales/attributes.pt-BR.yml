@@ -1,0 +1,8 @@
+pt-BR:
+  activerecord:
+    attributes:
+      proponent:
+        name: Nome
+        cpf: CPF
+        birth_date: Data de nascimento
+        salary: Salário

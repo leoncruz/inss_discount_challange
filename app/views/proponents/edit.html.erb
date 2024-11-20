@@ -1,0 +1,9 @@
+<% content_for :title, "Editing proponent" %>
+
+<h1>Editing proponent</h1>
+
+<div class="d-flex justify-content-end">
+  <%= link_to "Back", root_path, class: "btn btn-outline-primary" %>
+</div>
+
+<%= render "form", proponent: @proponent %>

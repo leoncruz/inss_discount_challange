@@ -1,0 +1,21 @@
+<div>
+  <p>
+    <strong><%= Proponent.human_attribute_name(:name) %>:</strong>
+    <%= proponent.name %>
+  </p>
+
+  <p>
+    <strong><%= Proponent.human_attribute_name(:cpf) %>:</strong>
+    <%= proponent.cpf %>
+  </p>
+
+  <p>
+    <strong><%= Proponent.human_attribute_name(:birth_date) %>:</strong>
+    <%= l proponent.birth_date %>
+  </p>
+
+  <p>
+    <strong><%= Proponent.human_attribute_name(:salary) %>:</strong>
+    <%= number_to_currency proponent.salary %>
+  </p>
+</div>

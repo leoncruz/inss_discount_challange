@@ -1,0 +1,8 @@
+pt-BR:
+  proponents:
+    index:
+      title: Proponentes
+      new: Cadastrar
+      details: Detalhes
+    new:
+      title: Novo

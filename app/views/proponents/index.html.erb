@@ -1,0 +1,15 @@
+<h1><%= t(".title") %></h1>
+
+<div class="d-flex justify-content-end">
+  <%= link_to t(".new"), new_proponent_path, class: "btn btn-primary" %>
+</div>
+
+<div id="proponents">
+  <% @proponents.each do |proponent| %>
+    <div class="py-3">
+      <%= render proponent %>
+
+      <%= link_to t(".details"), proponent, class: "btn btn-outline-primary" %>
+    </div>
+  <% end %>
+</div>

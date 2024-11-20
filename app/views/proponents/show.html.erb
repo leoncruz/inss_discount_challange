@@ -1,0 +1,10 @@
+<div class="d-flex justify-content-end">
+  <%= link_to t("helpers.actions.back"), root_path, class: "btn btn-primary" %>
+</div>
+
+<%= render @proponent %>
+
+<div class="d-flex gap-2">
+  <%= link_to t("helpers.actions.edit"), edit_proponent_path(@proponent), class: "btn btn-secondary" %>
+  <%= button_to t("helpers.actions.destroy"), @proponent, method: :delete, class: "btn btn-danger" %>
+</div>
