@@ -25,7 +25,7 @@ RSpec.describe "Contacts", type: :system do
   describe "editing a contact" do
     let!(:contact) { create(:contact, proponent: proponent, name: "Sara", telephone: "987654321", reference: true) }
 
-    it "allows a user to edit an existing contact", js: true do
+    it "allows a user to edit an existing contact" do
       visit proponent_path(proponent)
 
       within "##{ActionView::RecordIdentifier.dom_id(contact)}" do
