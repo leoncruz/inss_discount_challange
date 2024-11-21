@@ -1,8 +1,8 @@
 <div class="row">
   <div class="col-sm-12 col-md-6">
-    <div class="mb-3">
+    <div class="mb-3" data-controller="input-mask" data-input-mask-mask-value="00000-000">
       <%= form.label :cep, class: "form-label" %>
-      <%= form.text_field :cep, class: "form-control" %>
+      <%= form.text_field :cep, class: "form-control", data: { input_mask_target: "input" } %>
     </div>
   </div>
 

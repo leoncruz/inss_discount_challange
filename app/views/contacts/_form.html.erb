@@ -14,15 +14,15 @@
       <span class="text-danger"><%= form.object.errors[:name].to_sentence %></span>
     </div>
 
-    <div>
+    <div data-controller="input-mask" data-input-mask-mask-value="(00) 00000-0000">
       <%= form.label :telephone, class: "form-label" %>
-      <%= form.text_field :telephone, class: "form-control" %>
+      <%= form.text_field :telephone, class: "form-control", data: { input_mask_target: "input" } %>
 
       <span class="text-danger"><%= form.object.errors[:telephone].to_sentence %></span>
     </div>
 
     <div class="modal-footer d-flex gap-2 pt-3">
-      <%= link_to t("helpers.actions.close"), @contact.proponent, class: "btn btn-secondary", data: { "bs-dismiss": "modal" } %>
+      <%= link_to t("helpers.actions.close"), @contact.proponent, class: "btn btn-secondary", data: { turbo_frame: "_top" } %>
 
       <button type="submit" class="btn btn-primary" data-bd-dismiss="modal"><%= t("helpers.actions.save") %></button>
     </div>

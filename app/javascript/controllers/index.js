@@ -10,5 +10,5 @@ application.register("hello", HelloController)
 import HiddenFieldController from "./hidden_field_controller"
 application.register("hidden-field", HiddenFieldController)
 
-import ResetTurboFrameController from "./reset_turbo_frame_controller"
-application.register("reset-turbo-frame", ResetTurboFrameController)
+import InputMaskController from "./input_mask_controller"
+application.register("input-mask", InputMaskController)

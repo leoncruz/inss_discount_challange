@@ -27,9 +27,9 @@
       </div>
     </div>
     <div class="col-sm-12 col-md-6">
-      <div class="mb-3">
+      <div class="mb-3" data-controller="input-mask" data-input-mask-mask-value="000.000.000-00">
         <%= form.label :cpf, class: "form-label" %>
-        <%= form.text_field :cpf, class: "form-control" %>
+        <%= form.text_field :cpf, class: "form-control", data: { input_mask_target: "input" } %>
       </div>
     </div>
   </div>
@@ -42,9 +42,9 @@
       </div>
     </div>
     <div class="col-sm-12 col-md-6">
-      <div class="mb-3">
+      <div class="mb-3" data-controller="input-mask" data-input-mask-type-value="money">
         <%= form.label :salary, class: "form-label" %>
-        <%= form.text_field :salary, class: "form-control" %>
+        <%= form.text_field :salary, class: "form-control", data: { input_mask_target: "input" } %>
       </div>
     </div>
   </div>
