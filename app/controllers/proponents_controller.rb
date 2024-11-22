@@ -1,8 +1,9 @@
 class ProponentsController < ApplicationController
   before_action :set_proponent, only: %i[ show edit update destroy ]
+  before_action :format_salary, only: [ :create, :update ]
 
   def index
-    @proponents = Proponent.all
+    @proponents = Proponent.page(params[:page] || 1)
   end
 
   def show
@@ -66,5 +67,9 @@ class ProponentsController < ApplicationController
         address_attributes: [ :cep, :street, :number, :neighborhood, :city, :state ],
         contacts_attributes: [ :id, :_destroy, :reference, :name, :telephone ]
       )
+  end
+
+  def format_salary
+    params[:proponent][:salary] = params[:proponent][:salary].gsub(".", "").gsub(",", ".").to_d
   end
 end
