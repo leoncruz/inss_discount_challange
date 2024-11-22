@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "Proponents", type: :feature do
+RSpec.describe "Proponents", type: :system do
   describe "#index" do
     before do
       create(:proponent, name: "Proponent #1")

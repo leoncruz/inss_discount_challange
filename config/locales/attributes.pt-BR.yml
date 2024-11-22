@@ -6,6 +6,7 @@ pt-BR:
         cpf: CPF
         birth_date: Data de nascimento
         salary: Salário
+        discount: Desconto INSS
       address:
         street: Rua
         number: Número
