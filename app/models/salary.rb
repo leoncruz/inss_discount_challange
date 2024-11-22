@@ -1,4 +1,7 @@
 class Salary
+  include ActiveModel::Model
+  include ActiveModel::Attributes
+
   INSS_DISCOUNT_RANGES = [
     { limit: 1045.00, aliquot: 0.075 },
     { limit: 2089.60, aliquot: 0.09 },
@@ -6,13 +9,11 @@ class Salary
     { limit: 6101.06, aliquot: 0.14 }
   ].freeze
 
-  def initialize(salary)
-    @salary = salary
-  end
+  attribute :salary, :decimal
 
   def discount
     discount_total = 0.0
-    rest = @salary
+    rest = salary
 
     INSS_DISCOUNT_RANGES.each_with_index do |range, index|
       lower_limit = if index.zero?
@@ -21,16 +22,16 @@ class Salary
         INSS_DISCOUNT_RANGES[index - 1][:limit]
       end
 
-      value_range = [ range[:limit] - lower_limit, rest ].min
+      value_range = [ (range[:limit] - lower_limit).floor(2), rest ].min
 
-      discount_range = value_range * range[:aliquot]
-      discount_total += discount_range
+      discount_range = (value_range * range[:aliquot]).floor(2)
+      discount_total = (discount_total + discount_range).floor(2)
 
-      rest -= value_range
+      rest = (rest - value_range).floor(2)
 
       break if rest <= 0
     end
 
-    discount_total.round(2)
+    discount_total.floor(2)
   end
 end
