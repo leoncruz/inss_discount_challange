@@ -70,6 +70,8 @@ class ProponentsController < ApplicationController
   end
 
   def format_salary
-    params[:proponent][:salary] = params[:proponent][:salary].gsub(".", "").gsub(",", ".").to_d
+    return if proponent_params[:salary].blank?
+
+    proponent_params[:salary] = proponent_params[:salary].gsub(".", "").gsub(",", ".").to_d
   end
 end
