@@ -10,9 +10,11 @@ export default class extends Controller {
   }
 
   async makeRequest(event) {
-    this.inputTarget.setAttribute("value", "Calculando...")
-
     const salary = event.currentTarget.value
+
+    if (salary.length < 3) return
+
+    this.inputTarget.setAttribute("value", "Calculando...")
 
     const url = new URL(this.urlValue)
     url.searchParams.append("salary", salary)

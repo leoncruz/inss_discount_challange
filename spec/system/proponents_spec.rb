@@ -84,7 +84,7 @@ RSpec.describe "Proponents", type: :system do
     end
 
     context "when the update of proponent fails" do
-      it "shows the erros on page" do
+      it "shows the erros on page", js: true do
         visit edit_proponent_path(proponent)
 
         fill_in "Nome", with: ""
