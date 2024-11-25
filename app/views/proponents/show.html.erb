@@ -4,6 +4,10 @@
 
 <%= render @proponent %>
 
+<% if @proponent.address %>
+  <%= render @proponent.address %>
+<% end %>
+
 <div class="d-flex gap-2">
   <%= link_to t("helpers.actions.edit"), edit_proponent_path(@proponent), class: "btn btn-secondary" %>
   <%= button_to t("helpers.actions.destroy"), @proponent, method: :delete, class: "btn btn-danger" %>

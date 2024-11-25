@@ -94,7 +94,7 @@ RSpec.describe "Proponents", type: :system do
 
         expect(page).to have_text "Proponente não pode ser atualizado"
         expect(page).to have_text "Nome não pode ficar em branco"
-        expect(page).to have_text "Salário não pode ficar em branco"
+        expect(page).to have_text "Salário deve ser maior que 0"
       end
     end
   end

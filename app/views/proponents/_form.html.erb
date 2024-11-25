@@ -56,7 +56,7 @@
   </div>
 
   <%= form.fields_for :address, @address do |fa| %>
-    <%= render "address/form", form: fa %>
+    <%= render "addresses/form", form: fa %>
   <% end %>
 
   <%= form.submit class: "btn btn-primary" %>

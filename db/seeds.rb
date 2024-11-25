@@ -7,3 +7,35 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+puts "Seeding database Start"
+
+20.times do
+  salary = Faker::Number.within(range: 1_000.0..50_000.0).floor(2)
+
+  proponent = Proponent.create(
+    name: Faker::Name.name,
+    cpf: Faker::IdNumber.brazilian_citizen_number,
+    birth_date: Faker::Date.birthday,
+    salary:,
+    discount: Salary.new(salary:).discount,
+    address_attributes: {
+      cep: Faker::Address.zip_code,
+      street: Faker::Address.street_name,
+      number: Faker::Address.building_number,
+      city: Faker::Address.city,
+      state: Faker::Address.state,
+      neighborhood: "s/n"
+    }
+  )
+
+  5.times do
+    proponent.contacts.create(
+      reference: true,
+      name: Faker::Name.name,
+      telephone: Faker::PhoneNumber.phone_number
+    )
+  end
+end
+
+puts "Seeding database End"

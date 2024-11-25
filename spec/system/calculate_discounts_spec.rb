@@ -8,6 +8,6 @@ RSpec.describe "CalculateDiscounts", type: :system, js: true do
 
     fill_in "CEP", with: "668191" # unfocus from salary field
 
-    expect(page).to have_field('Desconto INSS', disabled: true, with: "R$ 281,62", normalize_ws: true)
+    expect(page).to have_field('Desconto INSS', with: "R$ 281,62", normalize_ws: true)
   end
 end
