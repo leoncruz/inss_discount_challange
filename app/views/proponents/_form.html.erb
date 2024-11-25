@@ -44,13 +44,13 @@
     <div class="col-sm-12 col-md-4">
       <div class="mb-3" data-controller="input-mask" data-input-mask-type-value="money">
         <%= form.label :salary, class: "form-label" %>
-        <%= form.text_field :salary, class: "form-control", data: { input_mask_target: "input", action: "blur->background-request#makeRequest" } %>
+        <%= form.text_field :salary, value: number_to_currency(form.object.salary), class: "form-control", data: { input_mask_target: "input", action: "blur->background-request#makeRequest" } %>
       </div>
     </div>
     <div class="col-sm-12 col-md-4">
       <div class="mb-3">
         <%= form.label :discount, class: "form-label" %>
-        <%= form.text_field :discount, class: "form-control", disabled: true, value: "0,00", data: { background_request_target: "input" } %>
+        <%= form.text_field :discount, class: "form-control", readonly: true, value: number_to_currency(form.object.discount), data: { background_request_target: "input" } %>
       </div>
     </div>
   </div>
