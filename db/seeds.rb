@@ -11,7 +11,7 @@
 puts "Seeding database Start"
 
 20.times do
-  salary = Faker::Number.within(range: 1_000.0..50_000.0).floor(2)
+  salary = Faker::Number.within(range: 1_000.0..6_000.0).floor(2)
 
   proponent = Proponent.create(
     name: Faker::Name.name,
