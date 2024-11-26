@@ -1,0 +1,30 @@
+#!/bin/bash
+
+set -e
+
+handle_interrupt() {
+  echo ""
+  echo "== Shutdown application =="
+  docker compose down
+  exit 1
+}
+
+trap handle_interrupt SIGINT
+
+echo "== Setup docker images =="
+docker compose up -d --build
+
+echo ""
+echo "== Preparing database =="
+docker compose exec app rails db:prepare
+
+echo ""
+echo "== Restarting application server =="
+docker compose exec app rails restart
+
+echo ""
+echo "== Setup finished! =="
+
+echo ""
+echo "== Server logs =="
+docker compose logs app -f

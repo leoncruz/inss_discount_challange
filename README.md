@@ -1,24 +1,45 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Inss Discount
 
-Things you may want to cover:
+### Tecnologias utilizadas
 
-* Ruby version
+* Ruby 3.5
+* Rails 7.2
+* Nodejs 20
+* Bootstrap 5
+* Chartjs 4.4
+* Postgres 16
+* Docker 27.3
 
-* System dependencies
 
-* Configuration
+### Como executar
 
-* Database creation
+Se estiver em um ambiente Unix, basta executar o script:
 
-* Database initialization
+```sh
+./scripts/setup
+```
+Para construir as imagens docker e levantar o servidor da aplicação.
 
-* How to run the test suite
+Se não estiver em um ambiente Unix, será necessário utilizar os comandos do Docker diretamente:
 
-* Services (job queues, cache servers, search engines, etc.)
+```sh
+docker compose up -d
 
-* Deployment instructions
+docker compose exec app rails db:prepare
+```
 
-* ...
+Para acessar a aplicação, é só ir para o endereço: [localhost:3000](localhost:3000)
+
+Usuário de acesso:
+
+    email: admin@email.com
+    senha: 123123
+
+
+### Considerações
+
+* Não achei necessário o uso de Sidekiq para esse desafio
+
+* Foi utilizado o plugin do rubocop que vem por padrão nas novas versões do Rails [Rubocop Rails Omakase](https://github.com/rails/rubocop-rails-omakase)
