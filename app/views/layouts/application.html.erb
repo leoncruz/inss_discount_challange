@@ -19,6 +19,12 @@
   </head>
 
   <body>
+    <% if current_user %>
+      <nav class="d-flex justify-content-end p-2">
+        <%= button_to "Sair", destroy_user_session_path, method: :delete, class: "btn btn-outline-danger" %>
+      </nav>
+    <% end %>
+
     <main class="container mt-4">
       <%= yield %>
     </main>

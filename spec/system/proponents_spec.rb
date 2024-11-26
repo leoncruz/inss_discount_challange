@@ -1,6 +1,10 @@
 require "rails_helper"
 
 RSpec.describe "Proponents", type: :system do
+  before do
+    sign_in create(:user)
+  end
+
   describe "#index" do
     before do
       create(:proponent, name: "Proponent #1")

@@ -1,6 +1,10 @@
 require "rails_helper"
 
 RSpec.describe "Contacts", type: :system do
+  before do
+    sign_in create(:user)
+  end
+
   let!(:proponent) { create(:proponent) }
 
   describe "creating a contact" do

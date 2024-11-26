@@ -10,32 +10,36 @@
 
 puts "Seeding database Start"
 
-20.times do
-  salary = Faker::Number.within(range: 1_000.0..6_000.0).floor(2)
+ApplicationRecord.transaction do
+  User.create(email: "admin@email.com", password: "123123")
 
-  proponent = Proponent.create(
-    name: Faker::Name.name,
-    cpf: Faker::IdNumber.brazilian_citizen_number,
-    birth_date: Faker::Date.birthday,
-    salary:,
-    discount: Salary.new(salary:).discount,
-    address_attributes: {
-      cep: Faker::Address.zip_code,
-      street: Faker::Address.street_name,
-      number: Faker::Address.building_number,
-      city: Faker::Address.city,
-      state: Faker::Address.state,
-      neighborhood: "s/n"
-    }
-  )
+  30.times do
+    salary = Faker::Number.within(range: 1_000.0..6_000.0).floor(2)
 
-  5.times do
-    proponent.contacts.create(
-      reference: true,
+    proponent = Proponent.create(
       name: Faker::Name.name,
-      telephone: Faker::PhoneNumber.phone_number
+      cpf: Faker::IdNumber.brazilian_citizen_number,
+      birth_date: Faker::Date.birthday,
+      salary:,
+      discount: Salary.new(salary:).discount,
+      address_attributes: {
+        cep: Faker::Address.zip_code,
+        street: Faker::Address.street_name,
+        number: Faker::Address.building_number,
+        city: Faker::Address.city,
+        state: Faker::Address.state,
+        neighborhood: "s/n"
+      }
     )
-  end
-end
 
-puts "Seeding database End"
+    5.times do
+      proponent.contacts.create(
+        reference: true,
+        name: Faker::Name.name,
+        telephone: Faker::PhoneNumber.phone_number
+      )
+    end
+  end
+
+  puts "Seeding database End"
+end

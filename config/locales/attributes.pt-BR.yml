@@ -18,3 +18,8 @@ pt-BR:
         name: Nome
         telephone: Telefone
         reference: Referência
+      user:
+        email: E-mail
+        password: Senha
+        remember_me: Lembrar de mim
+        password_confirmation: Confirmação da senha

@@ -1,6 +1,10 @@
 require "rails_helper"
 
 RSpec.describe "CalculateDiscounts", type: :system, js: true do
+  before do
+    sign_in create(:user)
+  end
+
   it "displays the salary discount on input" do
     visit new_proponent_path
 

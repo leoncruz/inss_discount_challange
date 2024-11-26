@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "proponents#index"
 
+  devise_for :users
+
   resources :proponents do
     resources :contacts, only: [ :new, :create, :edit, :update, :destroy ], shallow: true
   end
