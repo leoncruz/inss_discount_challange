@@ -16,5 +16,9 @@ Rails.application.routes.draw do
     resources :contacts, only: [ :new, :create, :edit, :update, :destroy ], shallow: true
   end
 
+  scope module: :proponents do
+    resources :charts, only: :index
+  end
+
   resources :calculate_discounts, only: :index
 end

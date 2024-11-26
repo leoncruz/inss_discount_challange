@@ -10,4 +10,12 @@ class Proponent < ApplicationRecord
   validates :salary, presence: true, numericality: { greater_than: 0, allow_nil: true }
 
   accepts_nested_attributes_for :address, allow_destroy: true
+
+  before_save :set_aliquot_range, if: -> { salary.present? }
+
+  private
+
+  def set_aliquot_range
+    self.aliquot_range = Salary.new(salary:).aliquot_range
+  end
 end

@@ -1,0 +1,9 @@
+<%= turbo_frame_tag :chart do %>
+  <%= content_tag :div, data: { 
+    controller: "chart",
+    chart_labels_value: t("charts.labels"),
+    chart_chart_labels_value: Proponent.group(:aliquot_range).count.to_json
+  } do %>
+    <canvas data-chart-target="chart"></canvas>
+  <% end %>
+<% end %>

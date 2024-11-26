@@ -34,4 +34,25 @@ class Salary
 
     discount_total.floor(2)
   end
+
+  # Retorna a faixa de aliquota em que o salário se encontra
+  # Podendo ser:
+  # 1: até 1045.00
+  # 2: até 2089.60
+  # 3: até 3134.50
+  # 4: até 6101.06
+  # Se o valor do salário for superior a faixa 4, será retornado 4.
+  def aliquot_range
+    limits = INSS_DISCOUNT_RANGES.pluck(:limit)
+
+    ranges = limits.map.with_index do |limit, index|
+      start = index.zero? ? 0 : (limits[index-1] + 0.1)
+
+      start..limit
+    end
+
+    range = ranges.find_index { |range| range.cover?(salary) }
+
+    { 0 => 1, 1 => 2, 2 => 3, 3 => 4, nil => 4 }[range]
+  end
 end
